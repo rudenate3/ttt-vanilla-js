@@ -1,2 +1,17 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~bootstrap/dist/css/bootstrap';
+
+.card-header {
+  background-color: rgba(78, 148, 239, 0.81);
+}
+
+.card-body {
+  margin: auto;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+  border: 1px #000000 solid;
+  font-size: 40px;
+}
