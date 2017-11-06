@@ -1,3 +1,4 @@
+const BoardModel = require('./models/board')
 const gameBoardContainer = $('#game-board-container')
 
 const dimension = 3
@@ -13,6 +14,9 @@ const createBoard = function() {
   }
   boardHtml += '</table>'
   gameBoardContainer.html(boardHtml)
+  const board = new BoardModel()
+  board.endTurn()
+
 }
 
 module.exports = {
