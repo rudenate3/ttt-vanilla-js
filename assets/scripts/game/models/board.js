@@ -1,19 +1,23 @@
+const debug = require('../../config').debug
+
 const BoardModel = function BoardModel () {
+  if (debug) {
+    console.log('Board Model Constructor Start')
+  }
   this.winner = false
-  this.playerATurn = true
-  this.board = {}
-  this.board.r0c0 = ''
-  this.board.r0c1 = ''
-  this.board.r0c2 = ''
-  this.board.r1c0 = ''
-  this.board.r1c1 = ''
-  this.board.r1c2 = ''
-  this.board.r2c0 = ''
-  this.board.r2c1 = ''
-  this.board.r2c2 = ''
+  this.playerXTurn = true
+  this.board = []
+  if (debug) {
+    console.log(this)
+  }
 }
 
 const checkAllSamePlayer = function (player, lineArray) {
+  if (debug) {
+    console.log('checkAllSamePlayer Start')
+    console.log(player)
+    console.log(lineArray)
+  }
   if (player !== 'X' && player !== 'O') {
     console.error('Not a valid player')
     return
@@ -29,15 +33,33 @@ const checkAllSamePlayer = function (player, lineArray) {
 }
 
 BoardModel.prototype.endTurn = function () {
-  this.playerATurn = !this.playerATurn
+  if (debug) {
+    console.log(this.playerXTurn ? 'X Turn End' : 'O Turn End')
+  }
+  this.playerXTurn = !this.playerXTurn
+}
+
+BoardModel.prototype.addClickHandlers = function () {
+  if(debug) {
+    console.log('Adding Click Handlers')
+  }
+  this.board.forEach((square) => {
+    square.addClickHandler()
+  })
+}
+
+BoardModel.prototype.removeClickHandlers = function () {
+  this.board.forEach((square) => {
+    square.removeClickHandler()
+  })
 }
 
 BoardModel.prototype.checkForWin = function (player) {
   if (
     checkAllSamePlayer(player, [ // Top Row
-      this.board.r0c0,
-      this.board.r0c1,
-      this.board.r0c2
+      this.board[0].r0c0,
+      this.board[1].r0c1,
+      this.board[2].r0c2
     ]) ||
     checkAllSamePlayer(player, [ // Middle Row
       this.board.r1c0,
