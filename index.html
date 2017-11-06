@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Example</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TTT</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -11,45 +12,66 @@
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
-<body class="container mt-3">
-<div class="row">
-  <div class="col-md-6 offset-3">
-    <div class="card text-center">
-      <div>
-        <h1 class="card-header">TTT</h1>
-      </div>
-      <div id="game-board-container" class="card-body">
-        <table>
-          <tr>
-            <td class="square">X</td>
-            <td class="square">X</td>
-            <td class="square">X</td>
-          </tr>
-          <tr>
-            <td class="square">X</td>
-            <td class="square">X</td>
-            <td class="square">X</td>
-          </tr>
-          <tr>
-            <td class="square">X</td>
-            <td class="square">X</td>
-            <td class="square">X</td>
-          </tr>
-        </table>
-      </div>
-      <div class="footer m-3">
-        <div class="row p-2">
-          <div class="col-md-6">
-            X Wins - 0
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">TTT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Game <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main" class="container">
+    <div class="row">
+      <div class="col-md-6 offset-3">
+        <div class="card text-center mt-3">
+          <div>
+            <h1 class="card-header">TTT</h1>
           </div>
-          <div class="col-md-6">
-            O Wins - 0
+          <div id="game-board-container" class="card-body">
+            <table>
+              <tr>
+                <td class="square">X</td>
+                <td class="square">X</td>
+                <td class="square">X</td>
+              </tr>
+              <tr>
+                <td class="square">X</td>
+                <td class="square">X</td>
+                <td class="square">X</td>
+              </tr>
+              <tr>
+                <td class="square">X</td>
+                <td class="square">X</td>
+                <td class="square">X</td>
+              </tr>
+            </table>
+          </div>
+          <div class="footer m-3">
+            <div class="row p-2">
+              <div class="col-md-6">
+                X Wins - 0
+              </div>
+              <div class="col-md-6">
+                O Wins - 0
+              </div>
+            </div>
+            <button id="new-game-button" class="btn btn-success">New Game</button>
           </div>
         </div>
-          <button id="new-game-button" class="btn btn-success">New Game</button>
       </div>
     </div>
-  </div>
-</div>
+</main><!-- /.container -->
+
+
 </body>
 </html>

@@ -8,7 +8,7 @@ module.exports = {
     entry: {
       application: './index.js',
       specs: './spec/_all.js',
-      vendor: ['jquery', 'bootstrap']
+      vendor: ['jquery', 'popper.js', 'bootstrap']
     },
 
     output: {
@@ -25,7 +25,8 @@ module.exports = {
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
-        'window.jQuery': 'jquery'
+        'window.jQuery': 'jquery',
+        Popper: ['popper.js', 'default'],
       })
     ],
 
