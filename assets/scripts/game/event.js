@@ -4,7 +4,7 @@ const gameLogic = require('./gameLogic')
 
 const onNewGame = function(event) {
   event.preventDefault()
-  gameLogic.createBoard()
+  gameLogic.newGame()
 }
 
 module.exports = {

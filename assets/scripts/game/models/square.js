@@ -12,19 +12,20 @@ SquareModel.prototype.addClickHandler = function() {
   if (debug) {
     console.log(this.id + ' Click Handler Added')
   }
+  const gameLogic = require('../gameLogic')
   $('#' + this.id).on('click', (event) => {
     if (debug) {
       console.log(this.id + ' Clicked')
     }
+    gameLogic.onSquareClicked(this)
   })
 }
 
 SquareModel.prototype.removeClickHandler = function() {
-  $('#' + this.id).off('click', (event) => {
-    if (debug) {
-      console.log(this.id + ' Click Handler Removed')
-    }
-  })
+  if (debug) {
+    console.log(this.id + ' Click Handler Removed')
+  }
+  $('#' + this.id).off('click')
 }
 
 module.exports = SquareModel

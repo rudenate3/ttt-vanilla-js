@@ -1,31 +1,51 @@
 const debug = require('../config').debug
 const BoardModel = require('./models/board')
-const SquareModel = require('./models/square')
 
-const gameBoardContainer = $('#game-board-container')
+let gameBoardInstance = {}
+let gameEnded = true
+let playerXTurn = true
+let turnCount
 
-const dimension = 3
-
-const createBoard = function () {
-  if (debug) {
-    console.log('Creating Board')
+const newGame = function () {
+  if (gameBoardInstance.board) {
+    gameBoardInstance.removeClickHandlers()
   }
-  const boardInstance = new BoardModel()
-  let boardHtml = '<table>'
-  for (let row = 0; row < dimension; row++) {
-    boardHtml += '<tr>'
-    for (let column = 0; column < dimension; column++) {
-      const squareId = 'r' + row + 'c' + column
-      boardHtml += '<td id="' + squareId + '" class="square"></td>'
-      boardInstance.board.push(new SquareModel(squareId))
-    }
-    boardHtml += '</tr>'
+  gameBoardInstance = {}
+  gameBoardInstance = new BoardModel()
+  turnCount = 0
+  playerXTurn = true
+  gameEnded = false
+}
+
+const addMove = function (square, player) {
+  square.val = player
+  $('#' + square.id).html(player)
+  if (gameBoardInstance.checkForWin(player)) {
+    gameEnded = true
+    alert('You have won the game')
   }
-  boardHtml += '</table>'
-  gameBoardContainer.html(boardHtml)
-  boardInstance.addClickHandlers()
+  if (turnCount === 8) {
+    gameEnded = true
+    alert('Tie game')
+  }
+  turnCount++
+}
+
+const onSquareClicked = function (square) {
+  if (gameEnded) {
+    alert('Game has ended')
+    console.log('Game is over')
+    return
+  }
+  if (square.val !== '') {
+    console.error('Space Taken')
+    return
+  }
+  playerXTurn ? addMove(square, 'X') : addMove(square, 'O')
+  playerXTurn = !playerXTurn
 }
 
 module.exports = {
-  createBoard
+  newGame,
+  onSquareClicked
 }
