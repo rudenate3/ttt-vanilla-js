@@ -1,7 +1,7 @@
 const debug = require('../../config').debug
 const SquareModel = require('./square')
 
-const gameBoardContainer = $('#game-board-container') // TODO abstract to PO
+const gameBoardContainer = require('../../pageObject').gameBoardContainer
 
 const dimension = 3
 
@@ -73,8 +73,8 @@ BoardModel.prototype.removeClickHandlers = function () {
   })
 }
 
-BoardModel.prototype.checkForWin = function (player) { // TODO update to use Square Model
-  if (
+BoardModel.prototype.checkForWin = function (player) {
+  return (
     checkAllSamePlayer(player, [ // Top Row
       this.board[0].val,
       this.board[1].val,
@@ -115,10 +115,7 @@ BoardModel.prototype.checkForWin = function (player) { // TODO update to use Squ
       this.board[4].val,
       this.board[2].val
     ])
-  ) {
-    return true
-  }
-  return false
+  )
 }
 
 module.exports = BoardModel

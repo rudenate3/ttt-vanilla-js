@@ -4,7 +4,7 @@ const config = {
   apiOrigins: {
     production: 'https://ga-wdi-boston.herokuapp.com'
   },
-  debug: true
+  debug: false // Basically turns logging on and off
 }
 
 module.exports = config

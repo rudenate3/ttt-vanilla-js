@@ -3,6 +3,8 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 
+const newGameButton = require('./pageObject').newGameButton
+
 $(() => {
   setAPIOrigin(location, config)
 })
@@ -16,5 +18,5 @@ const gameEvents = require('./game/event')
 // require('./example')
 
 $(() => {
-  $('#new-game-button').on('click', gameEvents.onNewGame)
+  newGameButton.on('click', gameEvents.onNewGame)
 })
