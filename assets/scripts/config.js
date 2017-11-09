@@ -2,9 +2,21 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    development: 'http://tic-tac-toe.wdibos.com',
+    production: 'https://aqueous-atoll-85096.herokuapp.com'
   },
-  debug: false // Basically turns logging on and off
+  debug: false, // Basically turns logging on and off
+  env: 'development'
+}
+
+config.apiOrigin = function () {
+  if (this.env === 'development') {
+    return this.apiOrigins.development
+  } else if (this.env === 'production') {
+    return this.apiOrigins.production
+  } else {
+    console.error('Wrong env set in config.js')
+  }
 }
 
 module.exports = config
