@@ -1,27 +1,19 @@
-const debug = require('../../config').debug
 const SquareModel = require('./square')
+const utils = require('../../utils')
 
 const gameBoardContainer = require('../../pageObject').gameBoardContainer
 
 const dimension = 3
 
 const BoardModel = function BoardModel () {
-  if (debug) {
-    console.log('Board Model Constructor Start')
-  }
+  utils.devLog('Board Model Constructor Start')
   this.board = []
-  if (debug) {
-    console.log(this)
-  }
+  utils.devLog(this)
   this.createBoard()
 }
 
 const checkAllSamePlayer = function (player, lineArray) {
-  if (debug) {
-    console.log('checkAllSamePlayer Start')
-    console.log(player)
-    console.log(lineArray)
-  }
+  utils.devLog('checkAllSamePlayer Start')
   if (player !== 'X' && player !== 'O') {
     console.error('Not a valid player')
     return
@@ -30,16 +22,11 @@ const checkAllSamePlayer = function (player, lineArray) {
     console.error('Not an array')
     return
   }
-  if (lineArray.every(square => square === player)) {
-    return true
-  }
-  return false
+  return (lineArray.every(square => square === player))
 }
 
 BoardModel.prototype.createBoard = function () {
-  if (debug) {
-    console.log('Creating Board')
-  }
+  utils.devLog('Creating Board')
   let boardHtml = '<table>'
   for (let row = 0; row < dimension; row++) {
     boardHtml += '<tr>'
@@ -56,18 +43,14 @@ BoardModel.prototype.createBoard = function () {
 }
 
 BoardModel.prototype.addClickHandlers = function () {
-  if (debug) {
-    console.log('Adding Click Handlers')
-  }
+  utils.devLog('Adding Click Handlers')
   this.board.forEach((square) => {
     square.addClickHandler()
   })
 }
 
 BoardModel.prototype.removeClickHandlers = function () {
-  if (debug) {
-    console.log('Removing Click Handlers')
-  }
+  utils.devLog('Removing Click Handlers')
   this.board.forEach((square) => {
     square.removeClickHandler()
   })

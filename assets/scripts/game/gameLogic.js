@@ -1,5 +1,5 @@
-const debug = require('../config').debug
 const BoardModel = require('./models/board')
+const utils = require('../utils')
 
 let gameBoardInstance = {}
 let gameEnded = true
@@ -44,10 +44,8 @@ const addMove = function (square, player) {
 
 const onSquareClicked = function (square) {
   if (gameEnded) {
-    alert('Game has ended')
-    if (debug) {
-      console.log('Game is over')
-    }
+    alert('Game has ended') // TODO refactor to html representation
+    utils.devLog('Game is over')
     return
   }
   if (square.val !== '') {
