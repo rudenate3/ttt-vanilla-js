@@ -42,8 +42,9 @@ const onWin = function (player) {
 
 const onTie = function () {
   gameEnded = true
-  alert('Tie game')
   ties++
+  pageObject.tiesSpan.html(ties)
+  alert('Tie game')
 }
 
 const addMove = function (square, player) {
