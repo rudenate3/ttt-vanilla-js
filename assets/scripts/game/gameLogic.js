@@ -1,10 +1,16 @@
 const BoardModel = require('./models/board')
 const utils = require('../utils')
 
+const pageObject = require('../pageObject')
+
 let gameBoardInstance = {}
 let gameEnded = true
 let playerXTurn = true
 let turnCount
+let xWins = 0
+let oWins = 0
+let ties = 0 // TODO add tie ui
+let games = 0
 
 const resetGameState = function() {
   turnCount = 0
@@ -13,6 +19,7 @@ const resetGameState = function() {
 }
 
 const newGame = function () {
+  games++ // May want to make this increment only in the case of a winner
   if (gameBoardInstance.board) {
     gameBoardInstance.removeClickHandlers()
   }
@@ -23,12 +30,20 @@ const newGame = function () {
 
 const onWin = function (player) {
   gameEnded = true
+  if (player === 'X') {
+    xWins++
+    pageObject.xWinsSpan.html(xWins)
+  } else {
+    oWins++
+    pageObject.oWinsSpan.html(oWins)
+  }
   alert('Player ' + player + ' have won the game')
 }
 
 const onTie = function () {
   gameEnded = true
   alert('Tie game')
+  ties++
 }
 
 const addMove = function (square, player) {
