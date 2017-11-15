@@ -24,6 +24,7 @@ const newGame = function () {
     gameBoardInstance.removeClickHandlers()
   }
   gameBoardInstance = {}
+  pageObject.messagesDiv.html('')
   gameBoardInstance = new BoardModel()
   resetGameState()
 }
@@ -37,7 +38,7 @@ const onWin = function (player) {
     oWins++
     pageObject.oWinsSpan.html(oWins)
   }
-  alert('Player ' + player + ' has won the game')
+  pageObject.messagesDiv.html('Player ' + player + ' has won the game')
 }
 
 const onTie = function () {
@@ -60,7 +61,6 @@ const addMove = function (square, player) {
 
 const onSquareClicked = function (square) {
   if (gameEnded) {
-    alert('Game has ended') // TODO refactor to html representation
     utils.devLog('Game is over')
     return
   }
