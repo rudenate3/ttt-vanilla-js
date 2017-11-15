@@ -37,7 +37,7 @@ const onWin = function (player) {
     oWins++
     pageObject.oWinsSpan.html(oWins)
   }
-  alert('Player ' + player + ' have won the game')
+  alert('Player ' + player + ' has won the game')
 }
 
 const onTie = function () {
