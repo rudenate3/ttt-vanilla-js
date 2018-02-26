@@ -9,10 +9,10 @@ let playerXTurn = true
 let turnCount
 let xWins = 0
 let oWins = 0
-let ties = 0 // TODO add tie ui
+let ties = 0
 let games = 0
 
-const resetGameState = function() {
+const resetGameState = function () {
   turnCount = 0
   playerXTurn = true
   gameEnded = false
@@ -45,7 +45,7 @@ const onTie = function () {
   gameEnded = true
   ties++
   pageObject.tiesSpan.html(ties)
-  alert('Tie game')
+  pageObject.messagesDiv.html('Tie Game!')
 }
 
 const addMove = function (square, player) {

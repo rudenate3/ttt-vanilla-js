@@ -6,7 +6,7 @@ const SquareModel = function SquareModel (id) {
   this.val = ''
 }
 
-SquareModel.prototype.addClickHandler = function() {
+SquareModel.prototype.addClickHandler = function () {
   utils.devLog(this.id + ' Click Handler Added')
   const gameLogic = require('../gameLogic')
   $('#' + this.id).on('click', (event) => {
