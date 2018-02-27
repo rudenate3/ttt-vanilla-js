@@ -22,22 +22,100 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Game <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Login</a>
       </li>
     </ul>
   </div>
 </nav>
 
-<main role="main" class="container">
+<div id="login">
+  <div class="container mt-2">
+    <div class="row">
+      <div class="col">
+         <div class="card">
+           <div class="card-header bg-primary text-light">
+              <h3 class="display-4 text-center p-2">Login</h3>
+           </div>
+           <div class="card-body">
+              <form class="form">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="email">Email: </label>
+                          <input class="form-control" type="text" id="email" required>                  
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label for="password">Password: </label>
+                          <input class="form-control" type="password" id="password" required>                  
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col text-center mt-2">
+                        <button class="btn btn-primary">Login</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+           </div>
+         </div>
+      </div>
+      <div class="col">
+          <div class="card">
+              <div class="card-header bg-primary text-light">
+                 <h3 class="display-4 text-center p-2">Register</h3>
+              </div>
+              <div class="card-body">
+                 <form class="form">
+                     <div class="container">
+                       <div class="row">
+                         <div class="col">
+                           <div class="form-group">
+                             <label for="email">Email: </label>
+                             <input class="form-control" type="text" id="email" required>                  
+                           </div>
+                         </div>
+                         <div class="col">
+                           <div class="form-group">
+                             <label for="password">Password: </label>
+                             <input class="form-control" type="password" id="password" required>                  
+                           </div>
+                         </div>
+                         <div class="col">
+                           <div class="form-group">
+                             <label for="confirm-password">Confirm: </label>
+                             <input class="form-control" type="password" id="confirm-password" required>                  
+                           </div>
+                         </div>
+                       </div>
+                       <div class="row">
+                         <div class="col text-center mt-2">
+                           <button class="btn btn-primary">Register</button>
+                         </div>
+                       </div>
+                     </div>
+                   </form>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main role="main" class="container d-none">
     <div class="row">
       <div class="col-md-6 offset-3">
         <div class="card text-center mt-3">
-          <div>
-            <h1 class="card-header">TTT</h1>
+          <div class="card-header bg-primary text-light">
+            <h1>TTT</h1>
           </div>
-          <div id="messages"></div>
+          <div class="card-body">
+            <div id="messages"></div>
           <div id="game-board-container" class="card-body">
             Click New Game to Start
           </div>
@@ -54,6 +132,7 @@
               </div>
             </div>
             <button id="new-game-button" class="btn btn-success m-3">New Game</button>
+          </div>
           </div>
         </div>
       </div>
